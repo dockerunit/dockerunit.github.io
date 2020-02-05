@@ -25,7 +25,7 @@ easily mount test config files.
 5. Support for multiple instances of a service, so you can check how the tested services would work on environments like [Kubernetes](https://kubernetes.io/).
 6. A simple mechanism similar to the
 [Java Validation Framework](https://jcp.org/en/jsr/detail?id=303) for you to
-add custom own annotations.
+add custom annotations.
 
 ## Usage
 You can enable Dockerunit by adding the following dependencies to you POM file
