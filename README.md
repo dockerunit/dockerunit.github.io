@@ -1,9 +1,4 @@
----
-title: Home
-has_children: false
-nav_order: 1
----
-
+# JUnit for Docker containers
 
 Dockerunit is an extensible framework for testing of dockerised services and
 applications.
