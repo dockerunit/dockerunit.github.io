@@ -1,7 +1,8 @@
 
+# Home
 {::nomarkdown}<script async defer src="https://buttons.github.io/buttons.js"></script>{:/}
 
-# Home
+
 
 [![Discord](https://img.shields.io/discord/587583543081959435.svg?style=flat)](https://discordapp.com/channels/587583543081959435/587583543081959437)
 &nbsp;
