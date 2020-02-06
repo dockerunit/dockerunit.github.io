@@ -1,4 +1,13 @@
-# JUnit for Docker containers
+
+{::nomarkdown}<script async defer src="https://buttons.github.io/buttons.js"></script>{:/}
+
+# Home
+
+[![Discord](https://img.shields.io/discord/587583543081959435.svg?style=flat)](https://discordapp.com/channels/587583543081959435/587583543081959437)
+&nbsp;
+[![License](https://img.shields.io/github/license/dockerunit/dockerunit-core.svg?style=flat)](https://choosealicense.com/licenses/apache-2.0/)
+&nbsp;
+{::nomarkdown}<a class="github-button" href="https://github.com/dockerunit/dockerunit-core/stargazers" data-icon="octicon-star"  aria-label="Star dockerunit/dockerunit-core on GitHub">us on Github</a>{:/}
 
 Dockerunit is an extensible framework for testing of dockerised services and
 applications.
@@ -25,6 +34,15 @@ add custom annotations.
 ## Usage
 You can enable Dockerunit by adding the following dependencies to you POM file
 (set `dockerunit.version` property to the version you intend to use).
+
+[Core](https://github.com/dockerunit/dockerunit-core): builds containers using Java-based descriptors
+
+[![CircleCI](https://img.shields.io/circleci/build/gh/dockerunit/dockerunit-core/master.svg?style=flat)](https://circleci.com/gh/dockerunit/dockerunit-core/tree/master)
+&nbsp;
+[![Maven](https://img.shields.io/maven-central/v/com.github.dockerunit/dockerunit-core.svg?style=flat)](https://search.maven.org/search?q=g:com.github.dockerunit%20AND%20a:dockerunit-core&core=gav)
+&nbsp;
+[![Javadoc](https://javadoc.io/badge/com.github.dockerunit/dockerunit-core.svg)](https://www.javadoc.io/doc/com.github.dockerunit/dockerunit-core)
+&nbsp;
 ```xml
 <dependency>
   <groupId>com.github.dockerunit</groupId>
@@ -32,14 +50,32 @@ You can enable Dockerunit by adding the following dependencies to you POM file
   <version>${dockerunit.version}</version>
   <scope>test</scope>
 </dependency>
+```
+[Consul](https://github.com/dockerunit/dockerunit-consul): ensures service discovery and health-checking
 
+[![CircleCI](https://img.shields.io/circleci/build/gh/dockerunit/dockerunit-consul/master.svg?style=flat)](https://circleci.com/gh/dockerunit/dockerunit-consul/tree/master)
+&nbsp;
+[![Maven](https://img.shields.io/maven-central/v/com.github.dockerunit/dockerunit-consul.svg?style=flat)](https://search.maven.org/search?q=g:com.github.dockerunit%20AND%20a:dockerunit-consul&core=gav)
+&nbsp;
+[![Javadoc](https://javadoc.io/badge/com.github.dockerunit/dockerunit-consul.svg)](https://www.javadoc.io/doc/com.github.dockerunit/dockerunit-consul)
+&nbsp;
+```xml
 <dependency>
   <groupId>com.github.dockerunit</groupId>
   <artifactId>dockerunit-consul</artifactId>
   <version>${dockerunit.version}</version>
   <scope>test</scope>
 </dependency>
+```
+[JUnit4](https://github.com/dockerunit/dockerunit-junit4): connects service discovery and container clean-up to the JUnit test life cycle
 
+[![CircleCI](https://img.shields.io/circleci/build/gh/dockerunit/dockerunit-junit4/master.svg?style=flat)](https://circleci.com/gh/dockerunit/dockerunit-junit4/tree/master)
+&nbsp;
+[![Maven](https://img.shields.io/maven-central/v/com.github.dockerunit/dockerunit-junit4.svg?style=flat)](https://search.maven.org/search?q=g:com.github.dockerunit%20AND%20a:dockerunit-junit4&core=gav)
+&nbsp;
+[![Javadoc](https://javadoc.io/badge/com.github.dockerunit/dockerunit-junit4.svg)](https://www.javadoc.io/doc/com.github.dockerunit/dockerunit-junit4)
+&nbsp;
+```xml
 <dependency>
   <groupId>com.github.dockerunit</groupId>
   <artifactId>dockerunit-junit4</artifactId>
