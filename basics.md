@@ -7,7 +7,7 @@ nav_order: 2
 # Basics
 
 This page covers most of the common configs one might want to set on a Docker container.
-Please not that `@Svc` and `@WebHealthCheck` (or `@TCPHealthCheck`) are mandatory for each descriptor, so they will be present in each example.
+Please note that `@Svc` and `@WebHealthCheck` (or `@TCPHealthCheck`) are mandatory for each descriptor, so they will be present in each example.
 
 ### Mounting a volume
 ```java
