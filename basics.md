@@ -12,6 +12,7 @@ Please note that `@Svc` and `@WebHealthCheck` (or `@TCPHealthCheck`) are mandato
 ### Mounting a volume
 ```java
 import com.github.dockerunit.core.annotation.*;
+import com.github.dockerunit.discovery.consul.annotation.*;
 
 @Svc(name="my-service", image="my-docker-image")
 @WebHealthCheck(port=8080)
@@ -22,6 +23,7 @@ Useful but not quite enough for a test. Dockerunit supports mounting of resource
 
 ```java
 import com.github.dockerunit.core.annotation.*;
+import com.github.dockerunit.discovery.consul.annotation.*;
 
 @Svc(name="my-service", image="my-docker-image")
 @WebHealthCheck(port=8080)
@@ -35,6 +37,7 @@ This way you can easily mount different config files for different tests inside 
 ### Passing an environment variable
 ```java
 import com.github.dockerunit.core.annotation.*;
+import com.github.dockerunit.discovery.consul.annotation.*;
 
 @Svc(name="my-service", image="my-docker-image")
 @WebHealthCheck(port=8080)
@@ -46,6 +49,7 @@ This is equivalent to `docker run -e FOO=foo -e BAR=bar my-docker-image`
 ### Exposing a container port to the host
 ```java
 import com.github.dockerunit.core.annotation.*;
+import com.github.dockerunit.discovery.consul.annotation.*;
 
 @Svc(name="my-service", image="my-docker-image")
 @WebHealthCheck(port=8080)
@@ -57,6 +61,7 @@ This is equivalent to `docker run -p 9080:8080 my-docker-image`
 ### Exposing a container port to a random host port (to avoid port conflicts)
 ```java
 import com.github.dockerunit.core.annotation.*;
+import com.github.dockerunit.discovery.consul.annotation.*;
 
 @Svc(name="my-service", image="my-docker-image")
 @WebHealthCheck(port=8080)
@@ -68,6 +73,7 @@ This is equivalent to `docker run -P my-docker-image`
 ### Provide or override the command to execute once the container starts
 ```java
 import com.github.dockerunit.core.annotation.*;
+import com.github.dockerunit.discovery.consul.annotation.*;
 
 @Svc(name="my-service", image="my-docker-image")
 @WebHealthCheck(port=8080)

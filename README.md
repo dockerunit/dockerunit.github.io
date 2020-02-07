@@ -102,7 +102,7 @@ import com.github.dockerunit.discovery.consul.annotation.WebHealthCheck;
 
 
 // Gives a name to the service and selects the docker image to use. Consul will put a dns entry on `my-spring-service.service.consul`.
-@Svc(name = "my-spring-service", image = "my-spring-service-image:latest")
+@Svc(name="my-spring-service", image="my-spring-service-image:latest")
 
 /* Maps the container port 8080 on the same host port number
 (equivalent to `docker run -p 8080:8080 my-spring-service-image:latest`) */
@@ -146,37 +146,36 @@ import com.github.dockerunit.core.annotation.WithSvc;
 import com.github.dockerunit.junit4.DockerUnitRule;
 import io.restassured.RestAssured;
 
-@WithSvc(svc = MyServiceDescriptor.class) // Selects the previously defined descriptor
+@WithSvc(svc=MyServiceDescriptor.class) // Selects the previously defined descriptor
 public class MyServiceTest {
 
-	@Rule
-	public DockerUnitRule rule = new DockerUnitRule();
+  @Rule
+  public DockerUnitRule rule = new DockerUnitRule();
+  private ServiceContext context;
 
-	private ServiceContext context;
+  @Before
+  public void setup() {
+    context = DockerUnitRule.getDefaultServiceContext();
+  }
+  @Test
+  public void healthCheckShouldReturn200() {
+    // Gets the service based on value in the @Svc annotation
+    Service s = context.getService("my-spring-service");
+    // Selects an available instance (you could declare more than one)
+    ServiceInstance si = s.getInstances().stream().findAny().get();
 
-	@Before
-	public void setup() {
-		context = DockerUnitRule.getDefaultServiceContext();
-	}
-
-	@Test
-	public void healthCheckShouldReturn200() {
-		// Gets the service based on value in the @Svc annotation
-		Service s = context.getService("my-spring-service");
-		// Selects an available instance (you could declare more than one)
-		ServiceInstance si = s.getInstances().stream().findAny().get();
-
-		RestAssured
-			.given()
-				/* Uses the ip and port of the instance.
-				The port could be dynamic if @PublishPorts is used */
-				.baseUri("http://" + si.getIp() + ":" + si.getPort())
-			.when()
-				.get("/health-check") // Hits the health-check endpoint
-			.then()
-				.assertThat()
-				.statusCode(200);
-	}
+    /* Uses the IP and port of the instance.
+        The port could be dynamic if @PublishPorts is used */
+    RestAssured
+        .given()
+            .baseUri("http://" + si.getIp() + ":" + si.getPort())
+        .when()
+            .get("/health-check") // Hits the health-check endpoint
+        .then()
+            .assertThat()
+            .statusCode(200);
+  }
+}
 ```
 
 This is Dockerunit in a nutshell.
